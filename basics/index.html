@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <!-- <div id="app"></div> -->
+    <div id="container"></div>
+    <script type="module" src="/main.js"></script>
+    <script type="module" src="/iife.js"></script>
+    <script type="module" src="/this.js"></script>
+    <script>
+      // can access a() like library by entering bolo.a() in console
+      const bolo = (function () {
+        console.log('BOLO IIFE Invoked');
+          function a() {
+            return 5;
+          }
+          return {
+            a:a
+          }
+      })();
+    </script>
+    <script>
+    // this is the object the function is a property of
+
+    // object.method(this) <- 'this' is an argument that refers to the object in which the method/function is contained
+
+    // if ran the following in console you would receive 'window'(the browser runtime) as this
+      function a() {
+        console.log(this);
+      }
+      a();
+
+      // this within object
+      const obj = {
+        name: 'Billy',
+        sing() {
+          console.log('lalala ' + this.name);
+          return 'shobon'
+        },
+        singAgain() {
+          const words = this.sing();
+          console.log(words, '!');
+      }
+      }
+
+      obj.sing()
+      obj.singAgain()
+
+      // this in a more 'higher/1 step more global scope'
+      // function can be used by both objects bc part of next higher scope
+      const vipPerson = () => {
+        console.log(this.name + '!');
+      }
+      const name = 'Sunny';
+      const obj1 = {
+        name: 'Cassy',
+        vipPerson: vipPerson
+      }
+      const obj2 = {
+        name: 'Jacob',
+        vipPerson: vipPerson
+      }
+      
+      vipPerson();
+      obj2.vipPerson()
+      console.log('end');
+
+
+    </script>
+
+    <!-- higher order functions -->
+    <script>
+      // a function that can take a function as an argument, or a function that returns another function
+
+      const giveAccessTo = (name) => { 
+        return console.log(`access granted to ${user}`)
+      }
+
+      function letUserLogin(user) {
+        let array = []
+        for (let i =0; i <100000000 ; i++) {
+          array.push(i)
+        }
+        return giveAccessTo(user);
+      }
+
+      letUserLogin('Billy');
+
+
+
+
+
+    </script>
+  </body>
+</html>
