@@ -1,24 +1,26 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+const parallax_el = document.querySelectorAll(".parallax");
+const box = document.querySelector(".myBox");
 
-setupCounter(document.querySelector('#counter'))
+let xValue = 0;
+let yValue = 0;
+
+window.addEventListener("mousemove", (event) => {
+  xValue = event.clientX - window.innerWidth / 2; // x relative to center of window
+  yValue = event.clientY - window.innerWidth / 2; // y relative to center of window
+  // console.log(xValue, yValue);
+  // console.log(parallax_el);
+
+  box.style.transform = `translateY(${yValue})`
+  console.log(box.style.color);
+  //grabs all parallax layers and add to node list that we can loop through
+  parallax_el.forEach((el) => {
+    // el.style.transform = `translateX(calc(-50% + ${xValue})) translateY(calc(-50% + ${yValue}))`;
+    // el.style.transform =  `translate(calc(-50%), calc(-50%))`; 
+    // el.style.transform =  `rotate(25deg)`; 
+    // el.style.transform = `scaleX(${xValue})`;
+    // el.style.transform =  `translate(calc(-50% + ${xValue}), calc(-50% + ${yValue}))`; 
+    // console.log(el);
+  })
+})

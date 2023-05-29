@@ -15,7 +15,7 @@ body {
 
 
 main {
-  background-color: rgb(107, 18, 55);
+  background-color: rgb(1, 14, 20);
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -24,34 +24,28 @@ main {
 
 .bg-img {
   position: absolute;
-  /* width: 2800px; */
-  width: 130%;
-  min-width: 2000px;
-  min-height: 100vh;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 2800px;
+  top: calc(50% - 390px);
+  left: calc(50% - 10px);
+  /* transform: translate(-50%, -50%);  // All Same on all parallax items so moved to '.parallax' class*/
   z-index: 1;
 }
 
 .char-1 {
   position: absolute;
-  /* width: 2800px; */
-  width: 22%;
-  top: 70%;
+  width: 25%;
+  top: 80%;
   left: 47%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%);  // All Same on all parallax items so moved to '.parallax' class*/
   z-index: 2;
 }
 
 .char-2 {
-
   position: absolute;
-  /* width: 2800px; */
-  width: 35%;
+  width: 34%;
   top: 85%;
   left: 75%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%);  // All Same on all parallax items so moved to '.parallax' class*/
   z-index: 3;
 }
 
@@ -60,7 +54,7 @@ main {
   z-index: 4;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%);  // All Same on all parallax items so moved to '.parallax' class*/
   text-align: center;
   text-transform: uppercase;
   color: #fcfffc;
@@ -87,11 +81,10 @@ main {
 
 .char-3 {
   position: absolute;
-  /* width: 2800px; */
-  width: 45%;
+  width: 50%;
   top: 85%;
   left: 20%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%);  // All Same on all parallax items so moved to '.parallax' class*/
   z-index: 5;
 }
 
@@ -101,7 +94,7 @@ main {
   width: 120%;
   top: calc(50% + 30%);
   left: 50%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%);  // All Same on all parallax items so moved to '.parallax' class*/
 }
 
 .vignette {
@@ -117,5 +110,17 @@ main {
 
 .parallax {
   pointer-events: none;
-  /* transform: translate(-50%, -50%); this could replace all transform/translate on pretty much all but whatever */
+  /* transform: translate(-50%, -50%); // removed and now adjusted programatically */
+    transform: translate(-50%, -50%); 
+}
+
+.myBox {
+  height: 10rem;
+  width: 10rem;
+  background-color: seagreen;
+  position: absolute;
+  z-index: 22;
+  top: 50%;
+  left: 50%;
+  color: red;
 }
